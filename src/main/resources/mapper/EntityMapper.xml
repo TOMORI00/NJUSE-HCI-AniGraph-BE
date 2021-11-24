@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.anigraph.dao.EntityMapper">
+    <resultMap id="Entity" type="cn.anigraph.po.Entity">
+        <id column="id" property="id"/>
+        <result column="url" property="url"/>
+        <result column="name" property="name"/>
+        <result column="name_cn" property="name_cn"/>
+        <result column="summary" property="summary"/>
+        <result column="image" property="image"/>
+        <result column="image_grid" property="image_grid"/>
+        <result column="alias" property="alias"/>
+        <result column="air_date" property="air_date"/>
+        <result column="ep_num" property="ep_num"/>
+    </resultMap>
+
+    <select id="searchEntityByName" resultMap="Entity">
+        select * from entity where name_cn like concat('%', '${sname}', '%') or name like concat('%', '${sname}', '%') or alias like concat('%', '${sname}', '%')
+    </select>
+
+</mapper>

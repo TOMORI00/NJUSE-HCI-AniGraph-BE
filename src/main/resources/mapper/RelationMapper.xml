@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.anigraph.dao.RelationMapper">
+    <resultMap id="Relation" type="cn.anigraph.po.Relation">
+        <id column="id" property="id"/>
+        <result column="source" property="source"/>
+        <result column="target" property="target"/>
+        <result column="name" property="name"/>
+        <result column="type" property="type"/>
+    </resultMap>
+
+    <select id="getRelationsByEntityId" resultMap="Relation">
+        select * from relation where source = #{entityId} or target = #{entityId}
+    </select>
+</mapper>
