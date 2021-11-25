@@ -18,4 +18,7 @@
         select * from entity where name_cn like concat('%', '${sname}', '%') or name like concat('%', '${sname}', '%') or alias like concat('%', '${sname}', '%')
     </select>
 
+    <select id="getEntityById" resultMap="Entity">
+        select * from entity where id = #{id}
+    </select>
 </mapper>
