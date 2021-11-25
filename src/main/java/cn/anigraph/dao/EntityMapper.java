@@ -12,4 +12,6 @@ import java.util.ArrayList;
 public interface EntityMapper {
     ArrayList<Entity> searchEntityByName(@Param("sname") String name);
     Entity getEntityById(@Param("id")int id);
+    ArrayList<String> getMatchedEntityNamesJP(@Param("prefix")String prefix);
+    ArrayList<String> getMatchedEntityNamesCN(@Param("prefix")String prefix);
 }

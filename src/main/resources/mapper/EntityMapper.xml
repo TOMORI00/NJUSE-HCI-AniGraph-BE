@@ -21,4 +21,12 @@
     <select id="getEntityById" resultMap="Entity">
         select * from entity where id = #{id}
     </select>
+
+    <select id="getMatchedEntityNamesJP" resultType="String">
+        select name from entity where name like concat('${prefix}', '%')
+    </select>
+
+    <select id="getMatchedEntityNamesCN" resultType="String">
+        select name_cn from entity where name_cn like concat('${prefix}', '%')
+    </select>
 </mapper>

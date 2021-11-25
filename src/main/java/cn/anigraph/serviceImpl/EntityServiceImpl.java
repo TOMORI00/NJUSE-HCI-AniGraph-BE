@@ -23,4 +23,11 @@ public class EntityServiceImpl implements EntityService {
         return list.stream().map(x -> new EntityVO(x)).distinct().collect(Collectors.toList());
     }
 
+    public List<String> getMatchedEntityNames(String prefix){
+        List<String> list = entityMapper.getMatchedEntityNamesCN(prefix);
+        list.addAll(entityMapper.getMatchedEntityNamesJP(prefix));
+        return list.stream().distinct().collect(Collectors.toList());
+    }
+
+
 }

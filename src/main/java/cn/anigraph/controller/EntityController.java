@@ -19,4 +19,8 @@ public class EntityController {
         return ResponseVO.buildSuccess(entityService.searchEntityByName(name));
     }
 
+    @GetMapping("/getSearchEntityCandidate")
+    public ResponseVO getSearchEntityCandidate(@RequestParam("name") String prefix){
+        return ResponseVO.buildSuccess(entityService.getMatchedEntityNames(prefix));
+    }
 }
