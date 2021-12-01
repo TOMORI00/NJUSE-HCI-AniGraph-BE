@@ -26,7 +26,15 @@ public class RelationServiceImpl implements RelationService {
     @Override
     public Map<String, List<Object>> getRelationsByEntityId(int entityId) {
         List<Relation> list = relationMapper.getRelationsByEntityId(entityId);
-        if(list.size() == 0) return new HashMap<>();
+        if(list.size() == 0){
+            Map<String, List<Object>> ret = new HashMap<>();
+            Entity e = entityMapper.getEntityById(entityId);
+            List<Entity> l = new ArrayList<>();
+            l.add(e);
+            ret.put("Entities", l.stream().map(x -> new EntityVO(x)).collect(Collectors.toList()));
+            ret.put("Relations", new ArrayList<>());
+            return ret;
+        }
         Map<String, List<Object>> ret = new HashMap<>();
         ret.put("Relations", list.stream().map(x -> new RelationVO(x)).distinct().collect(Collectors.toList()));
         List<Entity> entities = new ArrayList<>();
