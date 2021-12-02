@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: Ani-Graph
+  datasource:
+    url: jdbc:mysql://118.195.232.175:3306/anigraph?serverTimezone=GMT%2b8
+    username: anigraph_user
+    password: 3edc$RFV
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    platform: mysql
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+server:
+  port: 8000
