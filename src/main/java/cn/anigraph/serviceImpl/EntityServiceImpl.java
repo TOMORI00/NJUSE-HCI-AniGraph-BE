@@ -18,7 +18,9 @@ public class EntityServiceImpl implements EntityService {
 
     public List<EntityVO> searchEntityByName(String name) {
         System.out.println("Starting Searching for: "+name);
-        List<Entity> list = entityMapper.searchEntityByName(name);
+        List<Entity> list = entityMapper.searchEntityByNameCN(name);
+        list.addAll(entityMapper.searchEntityByName(name));
+        list.addAll(entityMapper.searchEntityByAlias(name));
         if(list.size() == 0) return new ArrayList<>();
         return list.stream().map(x -> new EntityVO(x)).distinct().collect(Collectors.toList());
     }
