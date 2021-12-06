@@ -53,4 +53,18 @@ public class RelationVO {
     public RelationVO(Relation relation){
         BeanUtils.copyProperties(relation, this);
     }
+
+    @Override
+    public boolean equals(Object object){
+        if( object == null ) return false;
+        if( !(object instanceof RelationVO) ) return false;
+        RelationVO relationVO = (RelationVO) object;
+        return this.id.equals(relationVO.getId()) && this.source.equals(relationVO.getSource()) && this.target.equals(relationVO.getTarget())
+                && this.name.equals(relationVO.getName()) && this.type.equals(relationVO.getType());
+    }
+
+    @Override
+    public int hashCode(){
+        return 1 + 17 * this.source + 31 * this.id;
+    }
 }

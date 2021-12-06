@@ -100,4 +100,18 @@ public class EntityVO {
     public EntityVO(Entity entity){
         BeanUtils.copyProperties(entity, this);
     }
+
+    @Override
+    public boolean equals(Object object){
+        if(object == null)return false;
+        if(!(object instanceof EntityVO)) return false;
+        EntityVO entityVO = (EntityVO) object;
+        return this.id.equals(entityVO.getId()) && this.url.equals(entityVO.getUrl())
+                && this.name.equals(entityVO.getName()) && this.name_cn.equals(entityVO.getName_cn());
+    }
+
+    @Override
+    public int hashCode(){
+        return 1 + 17 * this.getId() + 31 * this.name.hashCode();
+    }
 }

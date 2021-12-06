@@ -15,7 +15,7 @@
     </resultMap>
 
     <select id="searchEntityByName" resultMap="Entity">
-        select * from entity where name like concat('%', '${sname}', '%') and name_cn not like concat('%', '${sname}', '%')
+        select * from entity where name like concat('%', '${sname}', '%')
     </select>
     
     <select id="searchEntityByNameCN" resultMap="Entity">
@@ -23,7 +23,7 @@
     </select>
     
     <select id="searchEntityByAlias" resultMap="Entity">
-        select * from entity where alias like concat('%', '${sname}', '%') and name_cn not like concat('%', '${sname}', '%') and name not like concat('%', '${sname}', '%')
+        select * from entity where alias like concat('%', '${sname}', '%')
     </select>
 
     <select id="getEntityById" resultMap="Entity">
