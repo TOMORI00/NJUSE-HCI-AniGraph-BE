@@ -12,4 +12,8 @@
     <select id="getRelationsByEntityId" resultMap="Relation">
         select * from relation where source = #{entityId} or target = #{entityId}
     </select>
+
+    <select id="getRelationsOfCharacters" resultMap="Relation">
+        select * from relation where source = #{characterId} and type = 'perform'
+    </select>
 </mapper>

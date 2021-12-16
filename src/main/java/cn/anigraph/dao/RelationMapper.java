@@ -11,4 +11,5 @@ import java.util.ArrayList;
 @Repository
 public interface RelationMapper {
     ArrayList<Relation> getRelationsByEntityId(@Param("entityId")int entityId);
+    ArrayList<Relation> getRelationsOfCharacters(@Param("characterId")int characterId);
 }
