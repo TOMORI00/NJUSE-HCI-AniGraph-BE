@@ -38,22 +38,22 @@ public class RelationServiceImpl implements RelationService {
         for(Relation relation : list){
             entities.add(entityMapper.getEntityById(relation.getSource() == entityId ? relation.getTarget() : relation.getSource()));
         }
-//        ret.put("Entities", entities.stream().map(x -> new EntityVO(x)).distinct().collect(Collectors.toList()));
-//        //判断节点是否是 声优 节点
-//        //获取声优配音角色参与的动漫
-//        List<Relation> perfromRelations = new ArrayList<>();
-//        if(String.valueOf(entityId).startsWith("3")){
-//            entities.forEach((Entity e) -> {
-//                if(String.valueOf(e.getId()).startsWith("2")){
-//                    perfromRelations.addAll(relationMapper.getRelationsOfCharacters(e.getId()));
-//                }
-//            });
-//            list.addAll(perfromRelations);
-//            perfromRelations.forEach((Relation r) -> {
-//                entities.add(entityMapper.getEntityById(r.getTarget()));
-//            });
-//        }
-//        ret.put("Relations", list.stream().map(x -> new RelationVO(x)).distinct().collect(Collectors.toList()));
+    //    ret.put("Entities", entities.stream().map(x -> new EntityVO(x)).distinct().collect(Collectors.toList()));
+    //    //判断节点是否是 声优 节点
+    //    //获取声优配音角色参与的动漫
+    //    List<Relation> perfromRelations = new ArrayList<>();
+    //    if(String.valueOf(entityId).startsWith("3")){
+    //        entities.forEach((Entity e) -> {
+    //            if(String.valueOf(e.getId()).startsWith("2")){
+    //                perfromRelations.addAll(relationMapper.getRelationsOfCharacters(e.getId()));
+    //            }
+    //        });
+    //        list.addAll(perfromRelations);
+    //        perfromRelations.forEach((Relation r) -> {
+    //            entities.add(entityMapper.getEntityById(r.getTarget()));
+    //        });
+    //    }
+    //    ret.put("Relations", list.stream().map(x -> new RelationVO(x)).distinct().collect(Collectors.toList()));
         ret.put("Entities", entities.stream().map(x -> new EntityVO(x)).distinct().collect(Collectors.toList()));
         return ret;
     }

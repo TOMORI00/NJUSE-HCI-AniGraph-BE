@@ -2,7 +2,7 @@ spring:
   application:
     name: Ani-Graph
   datasource:
-    url: jdbc:mysql://localhost:3306/anigraph?serverTimezone=GMT%2b8
+    url: jdbc:mysql://192.168.1.111:3306/anigraph?serverTimezone=GMT%2b8
     username: root
     password: Thewind266
     driver-class-name: com.mysql.cj.jdbc.Driver
