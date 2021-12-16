@@ -26,12 +26,7 @@ public class EntityServiceImpl implements EntityService {
         List<Integer> indexId = new ArrayList<>();
         list = list.stream().distinct().collect(Collectors.toList());
         list.stream().forEach((Entity e) -> {
-            indexId.add(e.getId());
-        });
-        list.stream().forEach((Entity e) -> {
-            if(indexId.indexOf(e.getId()) == -1){
-                expanded.addAll(entityMapper.getExpandedSeries(e.getId()));
-            }
+            expanded.addAll(entityMapper.getExpandedSeries(e.getId()));
         });
         list.addAll(expanded.stream().distinct().collect(Collectors.toList()));
         return list.stream().map(x -> new EntityVO(x)).distinct().collect(Collectors.toList());
