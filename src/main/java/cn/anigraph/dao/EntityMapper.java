@@ -16,4 +16,5 @@ public interface EntityMapper {
     Entity getEntityById(@Param("id")int id);
     ArrayList<String> getMatchedEntityNamesJP(@Param("prefix")String prefix);
     ArrayList<String> getMatchedEntityNamesCN(@Param("prefix")String prefix);
+    ArrayList<Entity> getExpandedSeries(@Param("id") int id);
 }

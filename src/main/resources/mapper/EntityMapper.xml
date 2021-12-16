@@ -37,4 +37,8 @@
     <select id="getMatchedEntityNamesCN" resultType="String">
         select name_cn from entity where name_cn like concat('${prefix}', '%') or (name like concat('${prefix}', '%') and name_cn like concat('${prefix}', '%'))
     </select>
+
+    <select id="getExpandedSeries" resultMap="Entity">
+        select * from entity, relation where (relation.target = #{id} and relation.source = entity.id and relation.type = 'series') or (relation.target = entity.id and relation.source = #{id} and relation.type = 'series')
+    </select>
 </mapper>
