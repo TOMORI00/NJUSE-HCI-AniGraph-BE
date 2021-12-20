@@ -6,6 +6,7 @@
 
     <groupId>ani-graph</groupId>
     <artifactId>backend</artifactId>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -31,6 +32,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.4.3</spring-boot.version>
         <skipTests>true</skipTests>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 
     <dependencies>
